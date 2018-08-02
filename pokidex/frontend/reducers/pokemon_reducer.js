@@ -7,10 +7,10 @@ export const pokemonReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_POKEMON:
-      Object.keys(action.pokemon).forEach( (key) => {
-        nextState[key] = action.pokemon[key];
-      });
-      return nextState;
+      // Object.keys(action.pokemon).forEach( (key) => {
+      //   nextState[key] = action.pokemon[key];
+      // });
+      return merge(nextState, action.pokemon);
     default:
       return state;
   }
