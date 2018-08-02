@@ -3,12 +3,12 @@ import merge from 'lodash/merge';
 
 export const pokemonReducer = (state = {}, action) => {
   Object.freeze(state);
-  nextState = merge({}, state);
+  const nextState = merge({}, state);
 
   switch (action.type) {
     case RECEIVE_ALL_POKEMON:
-      action.pokemon.forEach( pokemon => {
-        nextState[pokemon.id] = pokemon;
+      Object.keys(action.pokemon).forEach( (key) => {
+        nextState[key] = action.pokemon[key];
       });
       return nextState;
     default:
